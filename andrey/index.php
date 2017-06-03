@@ -4,7 +4,8 @@
 <h1>Работа с Файлами</h1>
 <div>
     <a href="?action=read">Прочитать файл</a>
-    <a href="?action=write">Записать файл</a>
+    <a href="index.php">Записать телефон</a>
+    <a href="?action=del">Удалить файл</a>
 </div>
 
 </body>
@@ -29,6 +30,7 @@ define('DS', DIRECTORY_SEPARATOR); //Сепаратор
 define('GET_ACTION', 'action'); //Константа содержит строку action по которой потом будем проверять
 define('ACTION_READ', 'read');
 define('ACTION_WRITE', 'write');
+define('ACTION_DELETE', 'del');
 define('ACTION_DEFAULT', null); //Для дефолта присвоили константу чтения, таким образом сможем потом поменять действие
 
 
@@ -53,13 +55,15 @@ $data = genArray(100, 100, 'hex'); //Записываем в переменну�
  */
 
 //Выполняет проверку на то что находиться в адресной строке, и записываем значение в переменную $action
-if (isset($_GET[GET_ACTION]) && (($_GET[GET_ACTION] !== 'write') && ($_GET[GET_ACTION] !== 'read'))) {
+if (isset($_GET[GET_ACTION]) && (($_GET[GET_ACTION] !== 'write') && ($_GET[GET_ACTION] !== 'read') && ($_GET[GET_ACTION] !== 'del'))) {
     $action = ACTION_DEFAULT;
 
 
 } elseif (isset($_GET[GET_ACTION]) && (($_GET[GET_ACTION] == 'write') || ($_GET[GET_ACTION] == 'read'))) {
     $action = $_GET[GET_ACTION];
 
+} elseif (isset($_GET[GET_ACTION]) && (($_GET[GET_ACTION] == 'del'))) {
+    $action = $_GET[GET_ACTION];
 
 } else {
 
@@ -78,11 +82,11 @@ switch ($action) { // В action например пришло read
         writeContent($file, $_GET['telephone']);
         $output = 'Записано';
         break;
+    case ACTION_DELETE:
+        delFileContent($file);
+        break;
     default:
-        echo '<form action="" method = "GET">
-       <input type="tel" name="telephone">
-       <input type="text" name="action" value="write" hidden>
-       <input type="submit" value="Записать"></form>';
+        include APP_ROOT . DS . 'form.php';
 }
 
 echo $output;

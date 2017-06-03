@@ -73,6 +73,9 @@ function readContent ($file, $separator = "\n", $length = 5) {
     return $result;
 }
 
+function delFileContent ($file) {
+    unlink ($file);
+}
 
 
 //$data = [1,2,3,4,5,6,7];
