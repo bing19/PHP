@@ -38,31 +38,93 @@ define('DS', DIRECTORY_SEPARATOR);
 function getComponents ($name = null) {
     $file = APP_ROOT . DS . 'file' . DS . 'components.csv';
     $hendler = fopen($file, 'r');
-    $components = [];
+
     while (false !== ($data = fgets($hendler))) {
         $components[] = explode("\r\n", $data);
 
     }
-    $comp = [];
+    $e = [];
     foreach ($components as $value){
         if (is_array($value)) {
             foreach ($value as $compon) {
                 $arr = explode(';', $compon);
-
-
-
-                ]);
+                $e [$arr[0]] = ['Quantity' => $arr[1], 'Price' => $arr[2]];
             }
         }
     }
-
 //    $data = [
 //        'Тесто' => ['Quantity' => 10, 'Price' => 5]
 //    ];
-
-
-
-    var_dump($comp);
+   return $e[$name];
 }
 
-getComponents('Тесто');
+
+function getPizzaComponents ($pizza) {
+
+    $file = APP_ROOT . DS . 'file' . DS . 'pizza.csv';
+    $hendler = fopen($file, 'r');
+    $e = [];
+    while (false !== ($data = fgets($hendler))) {
+        $components[] = explode("\r\n", $data);
+
+        foreach ($components as $value) {
+           if (is_array($value)) {
+              foreach ($value as $pizzacomp) {
+                  $arr = explode(';', $pizzacomp);
+
+                  switch (count($arr)) {
+                      case 7:
+                          $e[$arr[0]] = [$arr[1] => $arr[2], $arr[3] => $arr[4], $arr[5] => $arr[6]];
+                          break;
+                      case 9:
+                          $e[$arr[0]] = [$arr[1] => $arr[2], $arr[3] => $arr[4], $arr[5] => $arr[6], $arr[7] => $arr[8]];
+                          break;
+                  }
+              }
+
+           }
+        }
+
+
+    }
+
+        return $e[$pizza];
+}
+
+//var_dump(getPizzaComponents ('Морская'));
+
+function checkComponents ($pizza, array $dobavki) {
+    $components = getPizzaComponents($pizza);
+    $components = array_merge($components, $dobavki);
+    foreach ($components as $comName => $compQuantity) {
+        $sklad = getComponents($comName);
+        if ($sklad['Quantity'] < $compQuantity) {
+                return false;
+        }
+
+    }
+    return true;
+}
+
+
+
+
+//var_dump(checkComponents ('Морская', ['Соус' => 1]));
+
+
+
+function updateComponents ($pizza, $dobavki) {
+    $pizzaComponent = array_merge(getPizzaComponents ($pizza), $dobavki);
+    $component = [];
+    foreach ($pizzaComponent as $key => $value) {
+        $component[$key] = getComponents($key);
+        $component[$key]['Quantity'] -= $pizzaComponent[$key];
+
+    }
+
+
+
+    var_dump($component);
+}
+
+updateComponents('Маргарита', ['Соус' => '2']);
