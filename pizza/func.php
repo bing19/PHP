@@ -30,15 +30,38 @@
 //checkComponents ($componentName, $dobavki);
 //getPrice ($pizzaName, $dobavki);
 
-define('APP_ROOT', __DIR__);
-define('DS', DIRECTORY_SEPARATOR);
 
 
 
-function getComponents ($name = null) {
+
+function getComponents ($name) {
     $file = APP_ROOT . DS . 'file' . DS . 'components.csv';
     $hendler = fopen($file, 'r');
 
+    while (false !== ($data = fgets($hendler))) {
+        $components[] = explode("\r\n", $data);
+
+    }
+    $e = [];
+    foreach ($components as $value){
+        if (is_array($value)) {
+            foreach ($value as $compon) {
+                $arr = explode(';', $compon); //Вся суть в скобке. Почитай про это еще.
+                $e [$arr[0]] = ['Quantity' => $arr[1], 'Price' => $arr[2]];
+            }
+        }
+    }
+//    $data = [
+//        'Тесто' => ['Quantity' => 10, 'Price' => 5],
+//         'Сыр' => ['Quantity' => 10, 'Price' => 5]
+//    ];
+   return $e[$name];
+}
+
+function getAllComponents () {
+    $file = APP_ROOT . DS . 'file' . DS . 'components.csv';
+    $hendler = fopen($file, 'r');
+    $components = [];
     while (false !== ($data = fgets($hendler))) {
         $components[] = explode("\r\n", $data);
 
@@ -55,7 +78,7 @@ function getComponents ($name = null) {
 //    $data = [
 //        'Тесто' => ['Quantity' => 10, 'Price' => 5]
 //    ];
-   return $e[$name];
+    return $e;
 }
 
 
@@ -93,7 +116,7 @@ function getPizzaComponents ($pizza) {
 
 //var_dump(getPizzaComponents ('Морская'));
 
-function checkComponents ($pizza, array $dobavki) {
+function checkComponents ($pizza, array $dobavki = []) {
     $components = getPizzaComponents($pizza);
     $components = array_merge($components, $dobavki);
     foreach ($components as $comName => $compQuantity) {
@@ -115,16 +138,48 @@ function checkComponents ($pizza, array $dobavki) {
 
 function updateComponents ($pizza, $dobavki) {
     $pizzaComponent = array_merge(getPizzaComponents ($pizza), $dobavki);
-    $component = [];
+    $component = getAllComponents();
     foreach ($pizzaComponent as $key => $value) {
-        $component[$key] = getComponents($key);
         $component[$key]['Quantity'] -= $pizzaComponent[$key];
-
+        if ($component[$key]['Quantity'] <= 0) {
+            echo $key . ' Закончился' . '<br>';
+        }
+    }
+    $content = '';
+    foreach ($component as $name => $param) {
+        $content .= $name . ';' . implode(';', $param);
     }
 
+    $file = APP_ROOT . DS . 'file' . DS . 'components.csv';
+    $hendler = fopen($file, 'w+');
+    fwrite($hendler, $content);
 
-
-    var_dump($component);
 }
 
-updateComponents('Маргарита', ['Соус' => '2']);
+//updateComponents('Маргарита', ['Соус' => '2']);
+
+
+function getPizzaPrice ($pizza, $dobavki) {
+    $components = getPizzaComponents($pizza);
+    $components = array_merge($components, $dobavki);
+    $price = 0;
+    foreach ($components as $key => $value) {
+      $price += $value;
+    }
+    return $price;
+}
+
+function makePizza ($pizza, $dobavki = []) {
+    if (checkComponents ($pizza, $dobavki) == true) {
+        updateComponents ($pizza, $dobavki);
+        return getPizzaPrice($pizza, $dobavki) . '$';
+    } else {
+        return 'Данная пицца закончилась';
+    }
+}
+
+//echo makePizza('Маргарита');
+
+//echo getPizzaPrice ('Маргарита', ['Соус' => 1]);
+
+//var_dump(updateComponents('Морская',['Соус' => 1]));
