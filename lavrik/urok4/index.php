@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * Created by PhpStorm.
  * User: davidoff
@@ -39,3 +40,19 @@ if ($result != 0) {
 } elseif ($result == 0) {
     echo $result;
 }
+=======
+
+$news = [];
+$news[0] = 'За качество ответят. Контролировать продукты питания начали по-новому.';
+$news[1] = 'Варшава не раскрывает перечень возможных мер против Минска';
+$news[2] = 'Павел Астахов намерен добиваться отставки ряда чиновников Удмуртии';
+
+
+include 'func.php';
+
+if (isset($_GET['id'])){
+    showItemNew($news, $_GET['id']);
+} else {
+    showListNews($news);
+}
+>>>>>>> b58dbf05f99623023e5b48bbacf805b9e50b7c25

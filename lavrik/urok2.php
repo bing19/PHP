@@ -39,38 +39,39 @@ echo $result . '<br>';
 //Присвойте $а значение в промежутке [0..9]. С помощью оператора switch
 //организуйте вывод чисел от $a до 9;
 
-$a = 7;
+$a = 2;
 
 switch($a) {
     case 1:
-        echo 'One';
-        break;
+        echo 1;
+
     case 2:
-        echo 'Two';
-        break;
+        echo 2;
+
     case 3:
-        echo 'Three';
-        break;
+        echo 3;
+
     case 4:
-        echo 'Four';
-        break;
+        echo 4;
+
     case 5:
-        echo 'Five';
-        break;
+        echo 5;
+
     case 6:
-        echo 'Six';
-        break;
+        echo 6;
+
     case 7:
-        echo 'Seven';
-        break;
+        echo 7;
+
     case 8:
-        echo 'Eight';
-        break;
+        echo 8;
+
     case 9:
-        echo 'Nine';
-        break;
+        echo 9;
+
 }
 
+echo '<br>';
 
 //Реализуйте все арифметические операции в виде функций с двумя параметрами.
 
@@ -113,10 +114,75 @@ function power($val, $pow)
 {
     if ($pow == 0) {
         return 1;
-
     } else {
         return $val * power($val, $pow-1);
     }
 }
 
-echo power(2, 3);
+echo power(4, 4);
+
+echo '<br>';
+
+//Написать функцию, которая принимают в качестве аргументов два числа и вычисляет из них большее. Написать такую же функцию, чтобы она вычисляла меньшее число.
+
+function maxNum($a, $b) {
+    $result = 0;
+    if ($a > $b) {
+        $result = $a;
+    } elseif ($a < $b) {
+        $result = $b;
+    } else {
+        $result = 'Числа равны';
+    }
+
+    return $result;
+}
+
+function minNum($a, $b) {
+    $result = 0;
+    if ($a < $b) {
+        $result = $a . ' меньше ' . $b;
+    } elseif ($a > $b) {
+        $result = $b . ' меньше ' . $a;
+    } else {
+        $result = 'Числа равны';
+    }
+
+    return $result;
+}
+
+echo maxNum(10, 2);
+echo '<br>';
+echo maxNum(5, 15);
+echo '<br>';
+echo maxNum(10, 10);
+echo '<br>';
+
+echo minNum(10, 2);
+echo '<br>';
+echo minNum(5, 15);
+echo '<br>';
+echo minNum(10, 10);
+echo '<br>';
+
+function math ($a, $b)
+{
+
+    $result = 0;
+    if (($a * $b > 100) && ($a * $b < 1000)) {
+        if ($a > $b) {
+            $result = $a - $b;
+        } elseif ($a < $b) {
+            $result = $b - $a;
+        } else {
+            $result = 'Числа равны';
+        }
+
+    } elseif ($a * $b > 1000) {
+        $result = $a * $b / maxNum($a, $b);
+    }
+
+    return $result;
+}
+
+echo math (100,12);
