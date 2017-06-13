@@ -160,11 +160,15 @@ function updateComponents ($pizza, $dobavki) {
 
 
 function getPizzaPrice ($pizza, $dobavki) {
-    $components = getPizzaComponents($pizza);
-    $components = array_merge($components, $dobavki);
+    $pizzaComponent = getPizzaComponents($pizza);
+    $pizzaComponent = array_merge($pizzaComponent, $dobavki);
+    settype($pizzaComponent['Соус'], 'string');
+    $components = getAllComponents();
+
     $price = 0;
-    foreach ($components as $key => $value) {
-      $price += $value;
+    foreach ($pizzaComponent as $key => $value) {
+      $price += $components[$key]['Price'] * $value;
+
     }
     return $price;
 }
