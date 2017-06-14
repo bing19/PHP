@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08efed1a-b18e-4ea8-a58a-66b5bbe2a44e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pizza/file/components.csv" afterPath="$PROJECT_DIR$/pizza/file/components.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pizza/func.php" afterPath="$PROJECT_DIR$/pizza/func.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pizza/index.php" afterPath="$PROJECT_DIR$/pizza/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pizza/tpl/form.phtml" afterPath="$PROJECT_DIR$/pizza/tpl/form.phtml" />
     </list>
     <ignored path="domashka.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +24,7 @@
     <favorites_list name="domashka" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="pizza.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pizza/file/pizza.csv">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,7 +38,7 @@
       <file leaf-file-name="func.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pizza/func.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
+            <state relative-caret-position="2340">
               <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="173" selection-end-column="1" />
               <folding />
             </state>
@@ -50,7 +48,7 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pizza/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
+            <state relative-caret-position="525">
               <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
@@ -67,11 +65,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="components.csv" pinned="false" current-in-tab="true">
+      <file leaf-file-name="components.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pizza/file/components.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -111,11 +119,11 @@
         <option value="$PROJECT_DIR$/lavrik/urok4/photo.php" />
         <option value="$PROJECT_DIR$/lavrik/urok4/form.php" />
         <option value="$PROJECT_DIR$/lavrik/urok4/index.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/pizza/file/components.csv" />
         <option value="$PROJECT_DIR$/pizza/index.php" />
         <option value="$PROJECT_DIR$/pizza/func.php" />
         <option value="$PROJECT_DIR$/pizza/tpl/form.phtml" />
+        <option value="$PROJECT_DIR$/pizza/file/components.csv" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -160,7 +168,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -190,48 +197,13 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pizza" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domashka" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domashka" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pizza" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tpl" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domashka" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domashka" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pizza" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="file" />
+              <option name="myItemId" value="OOP" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,12 +311,13 @@
       <workItem from="1497276808564" duration="776000" />
       <workItem from="1497331725247" duration="284000" />
       <workItem from="1497332012324" duration="122000" />
-      <workItem from="1497348224023" duration="1695000" />
+      <workItem from="1497348224023" duration="1800000" />
+      <workItem from="1497438684269" duration="123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74102000" />
+    <option name="totallyTimeSpent" value="74330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="195" y="29" width="1639" height="918" extended-state="0" />
@@ -643,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="767">
           <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,17 +633,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pizza/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
+        <state relative-caret-position="525">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
@@ -687,7 +651,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pizza/func.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
+        <state relative-caret-position="2340">
           <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="173" selection-end-column="1" />
           <folding />
         </state>
@@ -705,6 +669,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding />
         </state>
       </provider>
