@@ -14,16 +14,16 @@ define('DS', DIRECTORY_SEPARATOR);
 function loadClasses($ClassName) { // Функция загрузчик
     $classNameArr = explode('_', $ClassName);
     if (count($classNameArr) == 2) {
-        $ClassFilePath = APP_ROOT . DS . 'classes' . DS . $classNameArr[0] . DS . $classNameArr[1] . '.php';
+        $ClassFilePath = APP_ROOT . DS . 'classes' . DS . $classNameArr[0] . DS . $classNameArr[1] . '.class.php';
         if (file_exists($ClassFilePath)) {
-            echo "<p>executing __aturoload() with aClassName = {$ClassName}</p>";
+            echo "<p>executing __aturoload() with ClassName = {$ClassName}</p>";
             require_once $ClassFilePath;
             return true;
         }
     } else {
         $ClassFilePath = APP_ROOT . DS . 'classes' . DS . $classNameArr[0] . '.php';
         if (file_exists($ClassFilePath)) {
-            echo "<p>executing __aturoload() with aClassName = {$aClassName}</p>";
+            echo "<p>executing __aturoload() with ClassName = {$aClassName}</p>";
             require_once $ClassFilePath;
             return true;
         }
@@ -37,35 +37,33 @@ function loadClasses($ClassName) { // Функция загрузчик
 spl_autoload_register('loadClasses'); // Регистрация функции загрузчика
 
 
-$obj = new Auto_BMW();
-echo $obj->carName = 'BMW' . '<br>';
-echo $obj->model = 'M3';
+$product = new products_BaseProduct('Good model #555656', 500, 'Find where you can bougth Good model #555656?', 'The Good model #555656 is the most popular smartphone in the world');
+echo $product->name . '<br>';
+echo 'Price is ' . $product->price . '$' . '<br>';
+echo $product->description . '<br>';
+echo 'Размер фото для Стандартного товара ' .$product->getImageSize() . '<br>';
+echo $product->getConstant() . '<br>';
 
-//$obj2 = new Auto_Audi();
-//
-//
-//
-//var_dump($obj);
-//
-//var_dump($obj2);
-//
-//var_dump(spl_autoload_functions());
+echo '++++++++++++++ <br>';
 
-class A {
-    public $name = 'User';
-    public $age = 10;
-    protected $sex = '';
-    public function changeSex ($sex) {
-        return $this -> sex = $sex;
-    }
-}
 
-$a = new A();
-$a->name = 'Eugene';
-$a->age = 29;
-$a->secondName = 'Davidoff';
-$sex = 'changeSex';
-$a->$sex('Male');
-var_dump($a);
-$b = $a;
-echo $b->name;
+$phone = new products_PhoneProduct('Iphone 7', 1000, '2300x1200');
+echo $phone->name . '<br>';
+echo 'Price is ' . $phone->getPrice() . '$' . '<br>';
+echo $phone->display . '<br>';
+echo 'Размер фото для товара Телефон ' . $phone->getImageSize() . '<br>';
+
+var_dump($phone instanceof products_BaseProduct);
+
+
+echo '++++++++++++++ <br>';
+
+$bicycle = new products_BicycleProduct('BMX', 2000, 'BMX', 'This is a trial bicycle');
+echo $bicycle->name . '<br>';
+echo 'Price is ' . $bicycle->price . '$' . '<br>';
+echo $bicycle->description . '<br>';
+
+$cellPhone = new products_PhoneProduct('Nexus', 400 , '3000x2000' );
+
+var_dump($cellPhone instanceof products_BaseProduct);
+
