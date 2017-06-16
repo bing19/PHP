@@ -3,15 +3,17 @@
 define ('APP_ROOT', __DIR__ );
 define ('DS', DIRECTORY_SEPARATOR);
 
-$getClass = function ($className) {
-    $path = APP_ROOT . DS . 'calasses' . DS . $className . 'class.php';
+function getClass ($className) {
+    $path = APP_ROOT . DS . 'classes' . DS . $className . '.class';
     spl_autoload($path);
-};
+}
 
-var_dump($getClass);
+spl_autoload_register('getClass');
 
-spl_autoload_register($getClass);
 
-$car = new Auto();
+$car = new Transport(100);
+$distance = 500;
+echo $car->tripTime($distance);
 
 var_dump($car);
+
