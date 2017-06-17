@@ -2,11 +2,12 @@
 
 include_once 'autoloader.php';
 
-$config = new Config(180, 120);
-var_dump($config);
+$config = new Config(20, 120);
 $refreg = new Refreg('BOSH', $config);
-echo $refreg->getMaxFreshWeigth();
 $apple = new Eat('apple', 10);
+$banan = new Eat('banan', 5 );
 $refreg->addFreshEat($apple);
-echo $refreg->getMaxFreshWeigth();
+$refreg->addFreshEat($banan);
+$refreg->addFreshEat($banan);
+echo 'В холодильнике осталось свободного места объемом ' . $refreg->getMaxFreshWeigth() . '<br>';
 var_dump($refreg->lookStorage());

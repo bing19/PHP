@@ -51,7 +51,8 @@ class Refreg
         $config = $this->config;
 
         if ($config->validateFresh($name) == true) {
-            $this->storage[self::fresh_eat] = $name;
+            $this->storage[self::fresh_eat][] = $name;
+            echo $name->getName() . ' добавлен в холодильник'  . '<br>' ;
 
         }
     }

@@ -32,12 +32,12 @@ class Config implements iFrozeConfig
     }
 
     public function validateFresh ($eatName) {
-        if($eatName->getWeight() < $this->getMaxFreshWeigth()) {
+        if($eatName->getWeight() <= $this->getMaxFreshWeigth()) {
             $amount = $this->config['fresh_max_amount'] - $eatName->getWeight();
             $this->config['fresh_max_amount'] = $amount;
             return true;
         } else {
-            return false;
+            echo 'Место в холодильнике закончилось <br>';
         }
 
     }
