@@ -11,9 +11,5 @@ function getClass ($className) {
 spl_autoload_register('getClass');
 
 
-$car = new Transport(100);
-$distance = 500;
-echo $car->tripTime($distance);
 
-var_dump($car);
 
