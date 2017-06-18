@@ -8,32 +8,35 @@
  */
 class Refreg
 {
-    protected $storage = [];
-    protected $model;
-    protected $config;
-    protected $hasError = false;
+    protected $storage = []; // Хранилище холодильника
+    protected $model; // Модель
+    protected $config; // Конфиг в котором будет лежать объек конфигурации максимального объема камер
 
-    const fresh_eat = 'fresh';
-    const frozen_eat = 'frozen';
 
-    public function initStorage () {
+    const fresh_eat = 'Камера холодильника'; // Костанты для задания Ключей массива при инициализации Хранилища
+    const frozen_eat = 'Морозилка';
+
+    public function initStorage () { // Метод для инициализации структуры массива хранилища
         $this->storage = [
             self::fresh_eat => [],
             self::frozen_eat => []
         ];
+
     }
 
     public function __construct($model, iFrozeConfig $config)
     {
         $this->model = $model;
         $this->config = $config;
-        $this->hasError = true;
-        
+
         $this->initStorage();
     }
 
     public function lookStorage () {
         return $this->storage;
+    }
+    public function lookConfig () {
+        return $this->config;
     }
 
     public function getMaxFreshWeigth () {
