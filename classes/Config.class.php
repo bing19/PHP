@@ -1,15 +1,12 @@
 <?php
 
-
 class Config implements iFrozeConfig
 {
     private $config = [];
 
-//    protected $fresh_max_amount;
-//    protected $froze_max_amount;
-
     const fresh_amount = 'fresh_max_amount';
     const froze_amount = 'froze_max_amount';
+
 
     public function __construct($maxFresh, $maxFroze)
     {
@@ -21,7 +18,6 @@ class Config implements iFrozeConfig
         } else {
             echo 'Вы ввели непраивльные значения камер холодильника';
         }
-
     }
 
     public function getMaxFrozeWeigth () {
@@ -45,16 +41,11 @@ class Config implements iFrozeConfig
             echo 'Место в холодильнике закончилось <br>';
             return false;
         }
-
     }
-    
-
-
 
 }
-
 interface iFrozeConfig {
     public function __construct($maxFresh, $maxFroze);
     public function validateFresh ($eatName);
-  
+
 }
