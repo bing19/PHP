@@ -6,7 +6,7 @@ $config = new Config(180, 120);
 $refreg = new Refreg('BOSH', $config);
 
 $apple = new Eat('apple', 10);
-$banan = new Eat('banan', 5 )git ;
+$banan = new Eat('banan', 5 );
 $meet = new Eat('meet', 50);
 $refreg->addFreshEat($apple);
 $refreg->addFreshEat($banan);
