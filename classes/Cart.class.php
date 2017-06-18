@@ -10,7 +10,7 @@ class Cart
         $this->items[$p->getName()] = ['product' => $p, 'quantity' => $quantity];
     }
 
-    public function removeProduct ($product, $quantity) {
+    public function removeProduct (Product $product, $quantity) {
         $cartQuantity = $this->items[$product->getName()]['quantity'];
         $quantity = $cartQuantity - $quantity;
 

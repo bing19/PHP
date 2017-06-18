@@ -12,24 +12,11 @@ class Product
     protected $price;
     protected $quantity;
 
-//    public function __construct($name, $price, $quantity)
-//    {
-//        $this->name = $name;
-//        $this->price = $price;
-//        $this->quantity = $quantity;
-//    }
-
-    public function setName($name) {
+    public function __construct($name, $price, $quantity)
+    {
         $this->name = $name;
-        return $this;
-    }
-    public function setPrice($price) {
         $this->price = $price;
-        return $this;
-    }
-    public function setQuantity($quantity) {
         $this->quantity = $quantity;
-        return $this;
     }
 
     public function getName() {
