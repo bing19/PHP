@@ -8,4 +8,9 @@ Refregerator::getInstance();
 echo $frozen->checkObj();
 echo $frozen->checkObj();
 echo $frozen->checkObj();
-var_dump($frozen);
+$forz = Refregerator::getInstance();
+echo $forz->checkObj();
+
+//$holod = clone $forz; // Если открыть функцию клонирования, то клон создастся с текущими значниями объекта который клонируем
+//echo $holod->checkObj();
+var_dump($forz);

@@ -6,9 +6,9 @@ class Refregerator
     protected $model; // Модель
     protected $config; // Конфиг в котором будет лежать объек конфигурации максимального объема камер
 
-    static private $ins = NULL;
+    static private $obj= NULL;
 
-    public $count = 1;
+    public $count = 1; // Счетчик для проверки работы с объектом. Работаем ли мы с ним или создается новый
 
     const fresh_eat = 'Камера холодильника'; // Костанты для задания Ключей массива при инициализации Хранилища
     const frozen_eat = 'Морозилка';
@@ -20,14 +20,14 @@ class Refregerator
         ];
     }
 
-    static public function getInstance () {
-        if (self::$ins instanceof self) {
-            return self::$ins;
+    static public function getInstance () { // Статическая функция для создания объекта
+        if (self::$obj instanceof self) { // Если в $obj содержится объект данного класа. Значит TRUE, вернет объект
+            return self::$obj;
         }
-    return self::$ins = new self;
-}
+    return self::$obj = new self; // Если False создаем объект и ложим его в $obj
+    }
 
-    private function __construct()
+    private function __construct() // Закрываем доступ к функции конструктору
     {
         echo 'Холодильник Snaige создан';
         $this->model = 'Snaige';
@@ -36,11 +36,11 @@ class Refregerator
         $this->initStorage();
     }
 
-    public function checkObj () {
+    public function checkObj () { // Метод для проверки работы с объектом
         return $this->count++;
     }
 
-    private function __clone () {}
+    private function __clone () {} // закрываем возможность клонирования данного объекта
 
     public function lookStorage () {
         return $this->storage;
