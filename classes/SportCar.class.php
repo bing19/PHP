@@ -1,7 +1,7 @@
 <?php
 
 
-class SportCar
+class SportCar implements iConveer;
 {
     public function buildEngine();
 
