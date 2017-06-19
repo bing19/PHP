@@ -1,11 +1,17 @@
 <?php
 
 
-class MuscleCar implements iConveer;
+class MuscleCar implements iConveer
 {
-    public function buildEngine();
+    public function buildEngine() {
+        echo 'Engine';
+    }
 
-    public function attachWheels();
+    public function attachWheels() {
 
-    public function testing();
+    }
+
+    public function testing() {
+
+    }
 }
