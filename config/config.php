@@ -1,8 +1,8 @@
 <?php
 
-class Config {
+class config_config {
    private $config = [
-        'cacheMethod' => 'StorageFile2'
+        'cacheMethod' => 'classes_StorageFile1'
    ];
 
     public function getConfig () {

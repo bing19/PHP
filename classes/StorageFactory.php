@@ -1,7 +1,7 @@
 <?php
 
 
-class StorageFactory
+class classes_StorageFactory
 {
     public static function factoryStorage($config) {
         $config = $config->getConfig();

@@ -1,7 +1,7 @@
 <?php
 
 
-class StorageFile2 extends Storage
+class classes_StorageFile2 extends classes_Storage
 {
     private $file = APP_ROOT . DS . 'file' . DS . 'file2.csv';
     public function write ($data) {
