@@ -1,11 +1,12 @@
 <?php
 
-class Config {
+class config_config {
    private $config = [
-        'cacheMethod' => 'StorageFile2'
+        'cacheMethod' => 'classes_StorageFile2'
    ];
 
     public function getConfig () {
-        return $this->config;
+        $cacheMethod = $this->config;
+        return $cacheMethod['cacheMethod'];
     }
 }

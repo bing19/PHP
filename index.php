@@ -1,11 +1,7 @@
 <?php
 
 include_once 'autoloader.php';
+$data = "sdfasfafadsfdsfadsfadsf";
 
-//$data = 'dsfaffdfadfdfdfdfdaf';
-//$conf = new Config();
-//$f = StorageFactory::factoryStorage($conf);
-//echo $f->write($data);
-
-$obj = new StorageFile2();
-$obj->file();
+$obj = classes_StorageFactory::factoryStorage();
+echo $obj->write('Product_sku', $data);
