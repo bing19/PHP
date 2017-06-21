@@ -6,6 +6,7 @@ class config_config {
    ];
 
     public function getConfig () {
-        return $this->config;
+        $cacheMethod = $this->config;
+        return $cacheMethod['cacheMethod'];
     }
 }

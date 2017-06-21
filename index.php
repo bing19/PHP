@@ -1,10 +1,8 @@
 <?php
 
 include_once 'autoloader.php';
+$data = "sdfasfafadsfdsfadsfadsf";
 
-$data = 'dsfaffdfadfdfdfdfdaf';
-
-$f = classes_StorageFactory::factoryStorage();
-echo $f->write('Product_price', 500);
-
+$obj = classes_StorageFactory::factoryStorage();
+echo $obj->write('Product_sku', $data);
 
