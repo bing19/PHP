@@ -1,8 +1,15 @@
 <?php
 
 include_once 'autoloader.php';
-$data = "sdfasfafadsfdsfadsfadsf";
 
-$obj = classes_StorageFactory::factoryStorage();
-echo $obj->write('Product_sku', $data);
+$calc = new classes_Calc();
+
+if (isset($_POST['x']) && isset($_POST['y'])){
+    $calc->setXY($_POST['x'], $_POST['y']);
+    $calc->calc();
+
+}
+include 'template/form.php';
+
+?>
 
