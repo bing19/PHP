@@ -13,8 +13,16 @@ class classes_Calc
        return $this;
    }
 
-    public function calc () {
-        return $this->res = $this->x + $this->y;
+    public function calc ($operation) {
+        switch ($operation) {
+            case '+':
+                return $this->res = $this->x + $this->y;
+                break;
+            case '-':
+                return $this->res = $this->x - $this->y;
+                break;
+        }
+
     }
 
     public function getResalt () {
