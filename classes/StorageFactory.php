@@ -3,8 +3,8 @@
 
 class classes_StorageFactory
 {
-    public static function factoryStorage($config) {
-        $config = $config->getConfig();
+    public static function factoryStorage() {
+        $config = 
         $writeMethod = new $config['cacheMethod'];
 
         return $writeMethod;

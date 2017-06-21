@@ -3,8 +3,8 @@
 include_once 'autoloader.php';
 
 $data = 'dsfaffdfadfdfdfdfdaf';
-$conf = new config_config();
-$f = classes_StorageFactory::factoryStorage($conf);
+
+$f = classes_StorageFactory::factoryStorage();
 echo $f->write('Product_price', 500);
 
 
