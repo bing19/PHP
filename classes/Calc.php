@@ -7,19 +7,19 @@ class classes_Calc
     public $y;
     protected $res;
 
-   public function setXY ($x, $y) {
-       $this->x = $x;
-       $this->y = $y;
-       return $this;
-   }
+    public function calc ($x, $y, $operation) {
+        $this->x = (int) $x;
+        $this->y = (int) $y;
 
-    public function calc ($operation) {
         switch ($operation) {
             case '+':
                 return $this->res = $this->x + $this->y;
                 break;
             case '-':
                 return $this->res = $this->x - $this->y;
+                break;
+            default:
+                return $this->res = null;
                 break;
         }
 
