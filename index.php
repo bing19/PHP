@@ -13,11 +13,10 @@ function getCity ($letter, $citys) {
     foreach ($new as $value) {
 
         if (stristr($value[0], iconv('UTF-8', 'Windows-1251' , $char))) {
-            return $value;
+            return iconv('Windows-1251', 'UTF-8' , $value);
         }
     }
 }
 
-
-echo getCity ('л', $citys);
-
+assert('Киев' == getCity ('к', $citys));
+assert('Херсон' == getCity ('х', $citys));
