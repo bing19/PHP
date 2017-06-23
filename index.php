@@ -1,17 +1,23 @@
 <?php
+setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 include_once 'autoloader.php';
 
-$calc = new classes_Calc();
+$citys = ['Херсон', 'Одесса', 'Киев', 'Днепропетровск', 'Крым', 'Львов', 'Харьков'];
 
-if (isset($_POST['x']) && isset($_POST['y']) && isset($_POST['operation'])){
+function getCity ($letter, $citys) {
+    $char = mb_strtoupper($letter);
+    foreach ($citys as $city) {
+        $new[] = iconv('UTF-8', 'Windows-1251' , $city);
+    }
+    foreach ($new as $value) {
 
-    $calc->calc($_POST['x'], $_POST['y'], $_POST['operation']);
-
+        if (stristr($value[0], iconv('UTF-8', 'Windows-1251' , $char))) {
+            return $value;
+        }
+    }
 }
 
 
-include 'template/form.php';
-
-?>
+echo getCity ('л', $citys);
 
