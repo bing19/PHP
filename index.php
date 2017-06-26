@@ -3,20 +3,18 @@ setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 include_once 'autoloader.php';
 
-$citys = ['Херсон', 'Одесса', 'Киев', 'Днепропетровск', 'Крым', 'Львов', 'Харьков'];
+include 'func.php';
 
-function getCity ($letter, $citys) {
-    $char = mb_strtoupper($letter);
-    foreach ($citys as $city) {
-        $new[] = iconv('UTF-8', 'Windows-1251' , $city);
-    }
-    foreach ($new as $value) {
+$images = getData();
+include 'template/gallery.php';
 
-        if (stristr($value[0], iconv('UTF-8', 'Windows-1251' , $char))) {
-            return iconv('Windows-1251', 'UTF-8' , $value);
-        }
-    }
-}
 
-assert('Киев' == getCity ('к', $citys));
-assert('Херсон' == getCity ('х', $citys));
+
+
+
+
+
+
+?>
+
+
