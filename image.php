@@ -26,6 +26,7 @@ $images = include APP_ROOT . DS . 'data.php';
 <body>
 <div class="container">
     <img src="img/<?php echo $images[$num] ?>">
+
 </div>
 
 </body>

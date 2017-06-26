@@ -40,6 +40,11 @@
 
                 <?php } ?>
 
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="newimage">
+                    <input type="submit" value="Загрузить">
+                </form>
+
             </div>
         </div>
 
