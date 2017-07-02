@@ -1,29 +1,28 @@
 <?php
 
-function getData () {
+function getPost () {
     $data = [];
     $handler = fopen(APP_ROOT . DS . 'db.txt', 'r');
-    $count = 0;
     while (!feof($handler)) {
-        $count++;
-        $line = fgets($handler);
-        $data[$count] = $line;
+        $buffer = fgets($handler);
+        $arr = explode('|||', $buffer);
+        $data[] = ['date' => $arr[0], 'name' => $arr[1], 'message' => $arr[2]];
+        var_dump($data);
     }
+    fclose($handler);
+
+
     return $data;
 }
 
-function getImg ($img) {
+function writePost ($post) {
+    $postdate = ['date' => date("F j, Y, g:i a")];
+    $data = array_merge($postdate, $post);
+    $handler = fopen(APP_ROOT . DS . 'db.txt', 'a+');
+    $data = implode('|||', $data) . "\r";
+    fwrite($handler, $data);
+    fclose($handler);
 
-    $uploaded = $img['newimage'];
-    if($uploaded['error'] == 0 && ($uploaded['type'] == 'image/jpeg' || $uploaded['type'] == 'image/jpg' || $uploaded['type'] == 'image/png')) {
-        move_uploaded_file($uploaded['tmp_name'], APP_ROOT . DS . 'img' . DS . $uploaded['name']);
-        $handler = fopen(APP_ROOT . DS . 'db.txt', 'a+');
-        fwrite($handler, "\n" . $uploaded['name']);
-        fclose($handler);
-
-    }
-    
+    var_dump($data);
 }
-
-return getData();
 ?>
