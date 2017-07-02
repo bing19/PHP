@@ -15,16 +15,14 @@ function getData () {
 function getImg ($img) {
 
     $uploaded = $img['newimage'];
-    if($uploaded['error'] == 0) {
+    if($uploaded['error'] == 0 && ($uploaded['type'] == 'image/jpeg' || $uploaded['type'] == 'image/jpg' || $uploaded['type'] == 'image/png')) {
         move_uploaded_file($uploaded['tmp_name'], APP_ROOT . DS . 'img' . DS . $uploaded['name']);
         $handler = fopen(APP_ROOT . DS . 'db.txt', 'a+');
         fwrite($handler, "\n" . $uploaded['name']);
         fclose($handler);
 
     }
-
-
-
+    
 }
 
 return getData();

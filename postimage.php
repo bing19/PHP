@@ -11,4 +11,5 @@ if(!empty($_FILES)) {
     getImg ($_FILES);
 
 }
+
 header( "location: / ");
