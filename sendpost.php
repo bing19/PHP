@@ -1,5 +1,7 @@
 <?php
 include_once 'autoloader.php';
-include 'func.php';
 
-writePost($_POST);
+$guestbook = new class_GuestBook();
+$guestbook->appendData($_POST);
+
+header("location: /");

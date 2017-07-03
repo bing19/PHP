@@ -7,7 +7,7 @@
 
         <div class="container">
             <h1>Гостевая книга</h1>
-            <?php foreach ($data as $item) { ?>
+            <?php foreach ($guestbook->getData() as $item) { ?>
             <div class="item">
                 <div class="item-top">
                     <div class="name"><?php echo $item['name'] ?></div>
