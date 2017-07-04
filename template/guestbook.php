@@ -14,6 +14,7 @@
                     <div class="date"><?php echo $item['date'] ?></div>
                 </div>
                 <p><?php echo $item['message'] ?></p>
+                <a class="delete" href="?action=delete&id=<?php echo $item['id']; ?>">Удалить</a>
             </div>
             <?php } ?>
 

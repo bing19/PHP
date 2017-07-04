@@ -5,6 +5,8 @@ include_once 'autoloader.php';
 $guestbook = new class_GuestBook();
 include 'template/guestbook.php';
 
+var_dump($guestbook->delete());
+
 ?>
 
 

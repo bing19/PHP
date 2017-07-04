@@ -57,3 +57,16 @@ form button{
     padding: 15px 30px;
     font-size: 18px;
 }
+
+.delete {
+    display: block;
+    text-align: right;
+    color: #c7d4d4;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.delete:hover {
+    color: #ff5d24;
+    text-decoration: underline;
+}
