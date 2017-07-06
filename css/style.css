@@ -1,0 +1,59 @@
+body {
+    font-size: 16px;
+    font-family: 'Tahoma';
+}
+h1 {
+    border-bottom: 1px dashed black;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.item {
+    padding: 20px;
+    background-color: #d9e8e8;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.item-top {
+    display: flex;
+    justify-content: space-between;
+}
+.name, .date {
+    color: #6d8686;
+}
+.name {
+
+    font-size: 1.1rem;
+    /*font-weight: 800;*/
+}
+
+.date {
+    font-size: 0.9rem;
+}
+
+.item p {
+    color: #667979;
+}
+
+form input, textarea {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+form input[name="name"] {
+    width: 200px;
+    padding: 5px;
+}
+form textarea {
+    width: 100%;
+    height: 200px;
+}
+
+form button{
+    padding: 15px 30px;
+    font-size: 18px;
+}
