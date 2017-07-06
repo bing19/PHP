@@ -13,6 +13,8 @@ if (isset($_GET[GET_ACTION])) {
     $guestbook->delete($_GET['id']);
 }
 
+
+
 ?>
 
 
