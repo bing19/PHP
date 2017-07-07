@@ -3,12 +3,15 @@ include_once 'autoloader.php';
 define('GET_ACTION', 'action');
 define('ACTION_DELETE', 'delete');
 
-$guestbook = new class_GuestBook();
-$guestbook->changeId();
-$guestbook->appendData($_POST);
+$post = new class_GuestBookPost('id', '12-03-17', $_POST['name'], $_POST['message']);
+var_dump($post);
 
-if (isset($_GET[GET_ACTION])) {
-    $guestbook->delete($_GET['id']);
-}
+//$guestbook = new class_GuestBook();
+//$guestbook->changeId();
+//$guestbook->appendData($_POST);
 
-header("location: /");
+//if (isset($_GET[GET_ACTION])) {
+//    $guestbook->delete($_GET['id']);
+//}
+
+//header("location: /");

@@ -7,13 +7,14 @@
 
         <div class="container">
             <h1>Гостевая книга</h1>
-            <?php foreach ($guestbook->getData() as $key => $item) { ?>
+            <?php $post = $guestbook->getAllPost();
+                foreach ($post as $obj) { ?>
             <div class="item">
                 <div class="item-top">
-                    <div class="name"><?php echo $item['name'] ?></div>
+                    <div class="name"><?php echo $obj->getName(); ?></div>
                     <div class="date"><?php echo $item['date'] ?></div>
                 </div>
-                <p><?php echo $item['message'] ?></p>
+                <p><?php echo $obj->getMessage() ?></p>
                 <a class="delete" href="?action=delete&id=<?php echo $item['id']; ?>">Удалить</a>
             </div>
             <?php } ?>
@@ -38,7 +39,7 @@
 
             for( var i = 0; i < elem.length; i++) {
                 elem[i].onclick = function() {
-                    alert("Комментарий удален");
+                    confirm("Подтвердите удаление");
                 }
             }
 
