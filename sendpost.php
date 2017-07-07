@@ -1,14 +1,19 @@
 <?php
 include_once 'autoloader.php';
-define('GET_ACTION', 'action');
-define('ACTION_DELETE', 'delete');
+include 'config.php';
+//define('GET_ACTION', 'action');
+//define('ACTION_DELETE', 'delete');
 
-$guestbook = new class_GuestBook();
-$guestbook->changeId();
-$guestbook->appendData($_POST);
+$post = new class_GuestBookPost($_POST['name'], $_POST['message']);
+$guestbook->appendData($post);
 
-if (isset($_GET[GET_ACTION])) {
-    $guestbook->delete($_GET['id']);
-}
 
-header("location: /");
+//$guestbook = new class_GuestBook();
+//$guestbook->changeId();
+//$guestbook->appendData($_POST);
+
+//if (isset($_GET[GET_ACTION])) {
+//    $guestbook->delete($_GET['id']);
+//}
+
+//header("location: /");

@@ -7,14 +7,18 @@
 
         <div class="container">
             <h1>Гостевая книга</h1>
-            <?php foreach ($guestbook->getData() as $key => $item) { ?>
+            <?php $post = $guestbook->getAllPost();
+                foreach ($post as $obj) { ?>
             <div class="item">
                 <div class="item-top">
-                    <div class="name"><?php echo $item['name'] ?></div>
-                    <div class="date"><?php echo $item['date'] ?></div>
+                    <div class="name"><?php echo $obj->getName(); ?></div>
+                    <div class="date"><?php echo $obj->getPostDate(); ?></div>
                 </div>
-                <p><?php echo $item['message'] ?></p>
-                <a class="delete" href="?action=delete&id=<?php echo $item['id']; ?>">Удалить</a>
+                <p><?php echo $obj->getMessage() ?></p>
+                <div class="delete">
+                    <a href="?action=delete&id=<?php echo $obj->getPostId(); ?>">Удалить</a>
+                </div>
+
             </div>
             <?php } ?>
 
@@ -24,7 +28,7 @@
                     <input type="text" name="name" placeholder="Введите ваше имя">
                 </label>
                 <label>Ваше сообщение
-                    <textarea name="massege" cols="40" rows="3" placeholder="Тест сообщения...."></textarea>
+                    <textarea name="message" cols="40" rows="3" placeholder="Тест сообщения...."></textarea>
                 </label>
 
                 <button type="submit">Отправить сообщение</button>
@@ -38,7 +42,7 @@
 
             for( var i = 0; i < elem.length; i++) {
                 elem[i].onclick = function() {
-                    alert("Комментарий удален");
+                    confirm("Подтвердите удаление");
                 }
             }
 
