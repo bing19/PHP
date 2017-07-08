@@ -12,18 +12,26 @@ class class_GuestBook2
     }
 
     public function getAllPost () {
-        $handler = fopen($this->file, 'r', FILE_SKIP_EMPTY_LINES);
+        $handler = fopen($this->file, 'r');
         $posts = [];
         while (!feof($handler)) {
             $buffer = fgets($handler);
-            $arr = explode('|||', $buffer);
-            $obj = new class_GuestBookPost($arr[2], $arr[3]);
-            $obj->setId($arr[0]);
-            $obj->setDate($arr[1]);
-            $posts[] = $obj;
+            if(($buffer !== "\n" || $buffer !== "\n\r") || strlen($buffer) !== 0) {
+                $arr = explode('|||', str_replace("\n", '', $buffer));
+
+            }
+
+            if (!empty($buffer)) {
+                $obj = new class_GuestBookPost($arr[2], $arr[3]);
+                $obj->setId($arr[0]);
+                $obj->setDate($arr[1]);
+                $posts[] = $obj;
+            }
+
+
         }
         fclose($handler);
-
+        $this->data = $posts;
         return $posts;
     }
 
@@ -59,10 +67,10 @@ class class_GuestBook2
         $handler = fopen($this->file, 'w');
         foreach ($this->data as $value) {
             $data = implode('|||', $value);
-//            $data = str_replace(["\n"], '<br>', $data);
-            var_dump($data);
+            $data = str_replace(["\n"], '<br>', $data);
             fwrite($handler, $data."\n");
         }
+
         fclose($handler);
     }
 

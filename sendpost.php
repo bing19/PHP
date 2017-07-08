@@ -5,6 +5,7 @@ include 'config.php';
 //define('ACTION_DELETE', 'delete');
 
 $post = new class_GuestBookPost($_POST['name'], $_POST['message']);
+$guestbook->getAllPost();
 $guestbook->appendData($post);
 
 
@@ -16,4 +17,4 @@ $guestbook->appendData($post);
 //    $guestbook->delete($_GET['id']);
 //}
 
-//header("location: /");
+header("location: /");
