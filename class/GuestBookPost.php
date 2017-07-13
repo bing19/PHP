@@ -13,22 +13,28 @@ class class_GuestBookPost
         $this->name = $name;
     }
 
-    public function getName () {
+    public function getName()
+    {
         return $this->name;
     }
-    public function getMessage () {
+    public function getMessage()
+    {
         return $this->message;
     }
-    public function getPostId () {
+    public function getPostId()
+    {
         return $this->id;
     }
-    public function getPostDate () {
+    public function getPostDate()
+    {
         return $this->date;
     }
-    public function setId ($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
-    public function setDate ($date) {
+    public function setDate($date)
+    {
         $this->date = $date;
     }
 

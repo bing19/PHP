@@ -40,7 +40,7 @@
             var elem = document.getElementsByClassName("delete");
             console.log(elem);
 
-            for( var i = 0; i < elem.length; i++) {
+            for ( var i = 0; i < elem.length; i++) {
                 elem[i].onclick = function() {
                     confirm("Подтвердите удаление");
                 }
@@ -48,7 +48,7 @@
 
 
 
-            if(window.location.search) {
+            if (window.location.search) {
 
                 location.href = "http://php.loc";
             }
