@@ -6,7 +6,7 @@
     <body>
 
         <div class="container">
-            <h1>Гостевая книга</h1>
+            <h1>Гостевая книга< v2 - of 1/h1>
             <?php $post = $guestbook->getAllPost();
                 foreach ($post as $obj) { ?>
             <div class="item">
