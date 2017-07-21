@@ -11,31 +11,27 @@ class class_GuestBook2
         $this->file = $file;
     }
 
-    public function getAllPost () {
-        $handler = fopen($this->file, 'r');
+
+
+    public function getAllPost()
+    {
+        $handler = fopen($this->file, 'r', FILE_SKIP_EMPTY_LINES);
         $posts = [];
         while (!feof($handler)) {
             $buffer = fgets($handler);
-            if(($buffer !== "\n" || $buffer !== "\n\r") || strlen($buffer) !== 0) {
-                $arr = explode('|||', str_replace("\n", '', $buffer));
-
-            }
-
-            if (!empty($buffer)) {
-                $obj = new class_GuestBookPost($arr[2], $arr[3]);
-                $obj->setId($arr[0]);
-                $obj->setDate($arr[1]);
-                $posts[] = $obj;
-            }
-
-
+            $arr = explode('|||', trim($buffer));
+            $obj = new class_GuestBookPost($arr[2], $arr[3]);
+            $obj->setId($arr[0]);
+            $obj->setDate($arr[1]);
+            $posts[] = $obj;
         }
         fclose($handler);
         $this->data = $posts;
         return $posts;
     }
 
-    public function appendData (class_GuestBookPost $comment) {
+    public function appendData(class_GuestBookPost $comment)
+    {
         $data = $this->getAllPost();
         $post = [];
         foreach ($data as $obj) {
@@ -63,14 +59,20 @@ class class_GuestBook2
 
     }
 
-    public function save () {
+    public function save()
+    {
         $handler = fopen($this->file, 'w');
+        $i = 0;
+        $data = '';
         foreach ($this->data as $value) {
-            $data = implode('|||', $value);
-            $data = str_replace(["\n"], '<br>', $data);
-            fwrite($handler, $data."\n");
+            $i++;
+            if (count($this->data) !== $i) {
+                $data .= implode('|||', $value) . "\n";
+            } else {
+                $data .= implode('|||', $value);
+            }
         }
-
+        fwrite($handler, $data);
         fclose($handler);
     }
 
